@@ -4,10 +4,13 @@ public class Exam06 {
 
 	public static void main(String[] args) {
 		
+		
+		
 	/*	[6-1] 다음과 같은 멤버변수를 갖는 클래스를 정의하시오 
 
 	class StudentCard {
 		
+		//멤버변수 : 클래스 내에 선언된 변수
 		int num;
 		boolean isKwang;
 	
@@ -32,15 +35,18 @@ public class Exam06 {
 		int num;
 		boolean isKwang;
 		
+		 //SutdaCard 객체 생성
 		 SutdaCard() {
 		 	this(1, true);
 		 	
 		 }
+		 //num과 iskwang의 값을 저장한다
 		 SutdaCard(int num, boolean isKwang) {
 		 	this.num = num;
 		 	this.isKwang = isKwang;
 		 }
 		 
+		 //iskwang의 값이 true면 k를 출력하고 아니면 ""를 출력한다
 		 String info() {
 		 	return num + (isKwang ? "k" : "");
 		 	
@@ -82,9 +88,11 @@ public class Exam06 {
 	}
 	 class Student{
 	 
+	 	//gepTotal 생성을 위해 반환 변수는 int로 지정하고 값을 리턴한다
 	 	int getTotal() {
 	 		return kor + eng + math;
 	 	}
+	 	//getAverage 생성을 위해 반환 변수는 float으로 지정한다.(평균값이라 소수점이 나오기 때문에)
 	 	float getAverage() {
 	 		return (int)(getTotal() / 3f * 10 + 0.5f) / 10f;
 
@@ -97,50 +105,41 @@ public class Exam06 {
 	
 		 Student s = new Student("홍길동 ",1,1,100,60,76); 
 			System.out.println(s.info());
-
-			}
-		}
 			
-		class Student { 
-		
-		String name;
-		int ban;
-		int no;
-		int kor;
-		int eng;
-		int math;
-		
-		student(String name, int ban, int no, int kor, int eng, int math){
-		
-		this.name = name;
-		this.no = no;
-		this.kor = kor;
-		this.eng = eng;
-		this.math = math;
-		
-		}
+			//클래스안에 피라미터값을 넣어주고 값을 넣어준다
+			student(String name, int ban, int no, int eng, int math){
+				this.name = name;
+				this.ban = ban;
+				this.no = no;
+				this.eng = eng;
+				this.math = math;
+				
+				}
+				
+				int getTotal() {
+	 				return kor + eng + math;
+	 				}
+	 			float getAverage() {
+	 				return (int)(getTotal() / 3f * 10 + 0.5f) / 10f;
+
+	 			}
+
+				//넣어준 값을 리턴한다
+				String info(){
+					return(name + ban + ....+getAverage());
+					}
+				}
+			}
+			
 	
-		int getTotal() {
-	 		return kor + eng + math;
-	 	}
-	 	float getAverage() {
-	 		return (int)(getTotal() / 3f * 10 + 0.5f) / 10f;
-
-	 		}
-		
-		public String info(){
-			
-		
-		
-			}
-		
-		}
-		
 		
 		[6-6] 두 점의 거리를 계산하는 getDistance()를 완성하시오  .
 		
 		 //두 점 (x,y)와 (x1,y1)간의 거리를 구한다   . 
+		 //두점 구하는 법 : x끼리 빼서 곱하고 y끼리 빼서 곱한다음 루트를 씌운다.
 		   static double getDistance(int x, int y, int x1, int y1) {
+		  
+		   //Math.sqrt -> 루트 기능
 		    return Math.sqrt((x-x1)*(x-x1) + (y-y1)*(y-y1));
 		    
 		    
@@ -154,8 +153,8 @@ public class Exam06 {
 		인스턴스 메소드로 정의하시오.
 		
 		class MyPoint { 
-		int x; 
-		int y; 
+		int x; //인스턴스 변수
+		int y; //인스턴스 변수
 		
 		MyPoint(int x, int y) { 
 		this.x = x; 
@@ -243,6 +242,11 @@ public class Exam06 {
 		d. 기본값-초기화블럭-생성자-명시적초기화 
 		
 		-> a
+		//변수의 초기화 순서
+		//1.클래스변수의 초기화 시점 : 클래스가 처음 로딩될 때 단 한번 초기화된다.
+		 	-> 기본값 - 명시적 초기화 - 클래스 초기화 블럭
+		//2.인스턴스 변수의 초기화 시점 : 인스턴스가 생성될 때마다 각 인스턴스 별로 초기화된다
+			-> 기본값 - 명시적 초기화 - 인스턴스 초기화 블럭 - 생성자
 		
 		[6-16] 다음 중 지역변수에 대한 설명으로 옳지 않은 것은?
 		a. 자동 초기화되므로 별도의 초기화가 필요없다. 
@@ -253,6 +257,7 @@ public class Exam06 {
 		
 		-> a : 멤버변수의 설명
 		-> e : 힙 영역에는 인스턴스가 생성되는 영역이다.
+		//지역변수는 호출스택에 생성된다
 		
 		
 		
@@ -264,6 +269,7 @@ public class Exam06 {
 		d. println메서드가 종료되면 method1메서드가 수행을 재개한다. 
 		e. main-method2-method1-println의 순서로 호출되었다. 
 		f. 현재 실행중인 메서드는 println 뿐이다. 
+		//스택 : FILO 구조
 		
 		-> b : 제일 위에 있는 메소드는 현재 수행중인 메소드며 나머지는 대기상태
 		
@@ -295,6 +301,7 @@ public class Exam06 {
 		staticMethod1();     // 라인 E 
 		instanceMethod1(); 
 		
+		//static은 메모리에 먼저 호출이 된다. 그래서 뒤 늦게 호출되는 인스턴스 변수와 메소드를 사용할 수 없다.
 		
 		-> A : static 변수의 초기화에 인스턴스 변수를 사용할 수 없다. 
 				(사용해야 한다면 객체를 먼저 생성해야됨)
@@ -315,8 +322,10 @@ public class Exam06 {
 		change(str); 
 		System.out.println("After change:"+str); 
 		}
-		
+	
+		//change메소드와 str의 참조변수 이름은 같지만 다른 변수이다. 
 		실행결과 : ABC123
+		
 		
 		
 		
@@ -329,11 +338,28 @@ public class Exam06 {
 		반환타입 : int[] 매개변수 정수값이 담긴 배열 
 		
 		
-		shuffle() {
+		static int[] shuffle(int[] original) {
+			//매개변수로 들어오는 값이 맞는지 확인
+			if(original.length == 0 || original == null){
+				return original;
+			}
 		
+			int[] result = new int[original.length];
 			
-		
-		
+			//배열 섞기
+			for(int i = 0; i < original.length; i++){
+				int num = (int)(Math.random()* origonal.length);
+				
+				int temp = original[num];
+				original[i] = original[num];
+				original[num] = temp;
+			
+			}
+			//result 배열에 값을 넣어줌
+			for(int i = 0; i < original.length' i++){
+					return[i] = original[i];
+			}
+					return result;
 		}
 		
 		
@@ -358,20 +384,25 @@ public class Exam06 {
 		final int MIN_CHANNEL = 1; 
 		
 		void turnOnOff() { 
+			//isPowerOn의 값이 true면 false로, false면 true로 바꾼다. 
 			isPowerOn != isPowerOn
 		}
 
 		void volumUp() {
+			//volume의 값이 MAX_VOLUME보다 작을 때만 값을 1증가시킨다. 
 			if(volum < MAX_VOLUME){
 				volum++;
 		}
 
 		void volumDown() {
+			//volume의 값이 MIN_VOLUME보다 클 때만 값을 1감소시킨다
 			if(volum > MIN_VOLUME){
 				volum--;
 		}
 		
 		void channelUp() {
+			//channel의 값을 1증가시킨다.         
+			// 만일 channel이 MAX_CHANNEL이면, channel의 값을 MIN_CHANNEL로 바꾼다. 
 			if(channel==MAX_CHANNEL) { 
 			channel = MIN_CHANNEL; 
 			}else { 
@@ -379,10 +410,12 @@ public class Exam06 {
 		}
 
 		void channelDown() {
-					if(channel==MIN_CHANNEL) { 
-					channel = MAX_CHANNEL; 
-					}else { 
-						channel--; 
+			//channel의 값을 1감소시킨다.         
+			//만일 channel이 MIN_CHANNEL이면, channel의 값을 MAX_CHANNEL로 바꾼다.
+			if(channel==MIN_CHANNEL) { 
+			channel = MAX_CHANNEL; 
+			}else { 
+				channel--; 
 				}
 
 
@@ -391,10 +424,20 @@ public class Exam06 {
 		
 		public static boolean isNumber(String str) {
 		
+			//매개변수로 어떤 값이 넘어올지 모르기때문에 먼저 유효성 체크를 한다.
+			 //문자열이 null이거나 빈 문자열이면 false를 반환한다
 			if(str.equals("") || str==null){
 				return false;
-		
-		
+		}
+		//문자열에서 한 문자씩 차례대로 읽어와 char타입의 변수 ch에 저장한다.
+		for(int i = 0l i < str.length(); i++){
+			char ch = str.charAt(i);
+				//읽어온 문자가 숫자가 아니면 false를 반환한다
+				if(!(ch >= '0' && ch <= '9')){
+					return false;
+				}
+			}
+					return true;
 		}
 		
 		
@@ -404,15 +447,20 @@ public class Exam06 {
 		
 		
 		public static int max(int[] arr){
+			//배열이 null이거나 크기가 0인경우 -999999를 반환
 			if(arr== null || arr.length = 0){
 				return -999999;
 			}
 			
+			//배열의 첫 번째 값으로 최대값을 초기화한다.
 			int max = arr[0];
-			for(int i = 0; i < arr.length; i++){
+			//첫 번째 값을 초기화 했기 때문에 두번째값부터 비교한다
+			for(int i = 1; i < arr.length; i++){
 				if(arr[i] > max){
 					max = arr[i];
 				}
+				//가장 큰 값 리턴
+				return max;
 			}
 		}
 		
@@ -422,7 +470,7 @@ public class Exam06 {
 		 System.out.println(java.util.Arrays.toString(data)); 
 		 System.out.println("최대값 :"+max(data)); 
 		 System.out.println("최대값 :"+max(null)); 
-		 System.out.println(" 최대값 :"+max(new int[]{}));
+		 System.out.println("최대값 :"+max(new int[]{}));
 		 
 		  }
 }
@@ -432,6 +480,7 @@ public class Exam06 {
 		
 		
 		public static int abc(int value){
+			//value가 양수면 그대로 출력, 음수면 -붙여서 출력
 			return value >= 0 ? value : -value;
 		
 		

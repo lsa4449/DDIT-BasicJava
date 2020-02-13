@@ -17,13 +17,13 @@ public class JVM_Memory {
 	 */
 	
 	/*
-	 * << Metho Area >>
+	 * << Method Area >>
 	 * - ClassMember : classVar, classMethod
 	 * - System : out
 	 * - printStream : println()
 	 *  
 	 * 
-	 *  <<Call Stac >>
+	 *  <<Call Stack >>
 	 * - println(cm1.instanceVar) : 삭제
 	 * - instanceMethod() : 삭제
 	 * - println(cm1.classVar) : 삭제
