@@ -53,6 +53,36 @@ public class Inheritance {
 		 */
 		
 		
+		AccessModifier am = new AccessModifier();
+		System.out.println(am.publicVar);
+		am.publicMethod();
 		
+		System.out.println(am.protectedVar);
+		am.protectedMethod();
+		
+		System.out.println(am.defaultVar);
+		am.defaultMethod();
+		
+//		System.out.println(am.privateVar);
+//		am.privateMethod();
+		
+		Time t = new Time();
+		
+//		t.setHour(14);
+//		t.setMinute(47);
+		t.setSecond(100000);
+		
+		System.out.println(t);
+
+		Singleton s = Singleton.getInstance();
+		
+		System.out.println(s);
+		System.out.println(Singleton.getInstance());
+		
+		System.out.println(new Inheritance());
+		System.out.println(new Inheritance());
+		
+		
+	
 	}
 }
