@@ -12,7 +12,7 @@ public class BookVO {
 	private String list;
 
 	public BookVO() {
-	
+
 	}
 
 	public BookVO(int num, String title, String author, String list) {
@@ -57,12 +57,11 @@ public class BookVO {
 
 	@Override
 	public String toString() {
-		
+
 		return "BookLIST ==> [도서번호 = " + num + ", 제목 = " + title + ", 저자 = " + author + ", 분류 = " + list + "]";
-		//return "  " + num + "  "  + title + "  " + author + "	" + list ;	
-		
-		}
-	
+
 	}
 	
-//음..무엇이있을까요? 
+}
+
+// 음..어떻게 꾸밀 수 있을까요?

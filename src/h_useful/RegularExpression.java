@@ -1,5 +1,8 @@
 package h_useful;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegularExpression {
 	
 	public static void main(String[] args) {
@@ -27,6 +30,42 @@ public class RegularExpression {
 		 * \	정규표현식에서 사용되는 특수문자 표현
 		 * 
 		 */
-	}
+		
+		String str = "abcd123";
+//		String regex = "[a-z]{3}[0-9]{1,3}";
+//		String regex = "[a-z0-9]+";
+//		String regex = "\\w*";
+		String regex = ".*";
+		
+		
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(str);
+//		System.out.println(m.matches());
+	
+		//아이디, 전화번호, 이메일주소의 유효성을 검사하는 정규표현식 만들기
+		String id1 = "lsa4449";
+		String id2 = "^[a-z0-9]*$";
 
+		Pattern i = Pattern.compile(id2);
+		Matcher ma = i.matcher(id1);
+		System.out.println("id : " + ma.matches());
+		
+		String num1 = "010-1234-5678";
+		String num2 = "[0-9]{3}-[0-9]{4}-[0-9]{4}";
+		
+		Pattern n = Pattern.compile(num2);
+		Matcher ma2 = n.matcher(num1);
+		System.out.println("num : " + ma2.matches());
+		
+		String email1 = "lsa4449@naver.com";
+		String email2 = "^[a-z0-9]{1,10}@[a-z]{1,10}\\.[a-z]{1,5}";
+		
+		Pattern e = Pattern.compile(email2);
+		Matcher ma3 = e.matcher(email1);
+		System.out.println("email : " + ma3.matches());
+		
+	}
 }
+
+
+

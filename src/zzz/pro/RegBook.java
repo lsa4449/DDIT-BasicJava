@@ -1,5 +1,7 @@
 package zzz.pro;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.util.Scanner;
 
 public class RegBook {
@@ -51,6 +53,7 @@ public class RegBook {
 			for (BookVO book : b) {
 				if (book != null) {
 					indexBook(book);
+					
 				}
 			}
 		}
@@ -66,32 +69,6 @@ public class RegBook {
 		System.out.println("===============================");
 		String list = getData("등록할 도서의 분류를 입력하세요 >>");
 
-//		while (play) {
-//			System.out.println("===============================");
-//			System.out.println(" 1.자연과학 | 2.문학 | 3.예술 | 4.철학 ");
-//			System.out.println("===============================");
-//			listNo = getListNum("등록할 도서의 종류를 선택하세요 >>");
-//
-//			switch (listNo) {
-//			case 1:
-//				System.out.println("자연과학");
-//				break;
-//			case 2:
-//				System.out.println("문학");
-//				break;
-//			case 3:
-//				System.out.println("예술");
-//				break;
-//			case 4:
-//				System.out.println("철학");
-//				break;
-//			default:
-//				System.out.println("잘못 입력 했습니다!");
-//
-//			}
-//			break;
-//		}
-
 		for (int i = 0; i < b.length; i++) {
 			if (b[i] == null) {
 				num = i + 1;
@@ -102,8 +79,22 @@ public class RegBook {
 
 			}
 		}
-	}
+		
+			try(FileOutputStream fos = new FileOutputStream("D:/bookLIST.txt", true);
+					FileInputStream fis2 = new FileInputStream("D:/bookLIST.txt")){
 
+			String str = "BookLIST ==> [도서번호 = " + num + ", 제목 = " + title + ", 저자 = " + author + ", 분류 = " + list + "]";
+			byte[] bytes = str.getBytes();
+			for(int i = 0; i < bytes.length; i++){
+				
+				fos.write(bytes[i]);
+				
+			}
+		} catch(Exception e){
+			e.printStackTrace();
+			
+		}
+	}
 
 	// 도서 수정하기
 	public void updateBook() {
@@ -230,5 +221,6 @@ public class RegBook {
 //		System.out.println(message);
 //		return s.nextInt();
 //	}
+
 
 }

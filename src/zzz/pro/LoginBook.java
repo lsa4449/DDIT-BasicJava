@@ -3,6 +3,8 @@ package zzz.pro;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LoginBook {
 
@@ -10,9 +12,15 @@ public class LoginBook {
 	
 	//로그인 ID = 회원가입 ID
 	//id1 = 회원가입, id2 = 로그인
-	//로그인 PWD = 회원가입PWD
-	String id1 = "", id2 = "";
-	String pwd1 = "", pwd2 = "";
+	//PWD1 = 회원가입, PWD2 = 로그인
+	String id1 = "[a-z0-9]{5,10}", id2 = "";
+	String pwd1 = "[a-z0-9]{5,15]", pwd2 = "";
+	
+	Pattern i = Pattern.compile(id2);
+	Matcher m1 = i.matcher(id1);
+	
+	Pattern p = Pattern.compile(pwd2);
+	Matcher m2 = i.matcher(pwd1);
 	
 	int num = 0;
 	Date today = new Date();
@@ -35,10 +43,11 @@ public class LoginBook {
 					continue; 
 				}
 				
-				System.out.print("ID : ");
+				System.out.print("ID(영어+숫자, 5-10글자) : ");
 				id2 = s.next();
-				System.out.print("PWD : ");
+				System.out.print("PWD(영어+숫자, 5-15글자) : ");
 				pwd2 = s.next();
+				
 				
 				if (id1.equals(id2) && pwd1.equals(pwd2)) {
 					
@@ -56,13 +65,14 @@ public class LoginBook {
 				} else {
 					System.out.println("다시 입력해주세요.");
 				}
+			
 		
 				
 			//회원가입
 			} else if (num == 2) {
-				System.out.print("ID : ");
+				System.out.print("ID(영어+숫자, 5-10글자) : ");
 				id1 = s.next();
-				System.out.print("PWD : ");
+				System.out.print("PWD(영어+숫자, 5-15글자) : ");
 				pwd1 = s.next();
 				System.out.println("회원가입 완료 하였습니다.");
 			
