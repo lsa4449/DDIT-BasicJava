@@ -164,8 +164,8 @@ public class Array {
 			
 			System.out.println("------------------------------");
 			//1~10 사이의 난수를 500번 생성하고. 각 숫자가 생성된 횟수를 출력			
-			int[] random = new int[500];
-			int[] count = new int[10];
+			/*int[] random = new int[500];
+			int[] count = new int[10]; //1~10까지 저장
 			
 			for(int i = 1; i < random.length; i++){
 				random[i] = (int)(Math.random()* 10);		
@@ -216,12 +216,52 @@ public class Array {
 				}
 					System.out.println(j + " 가 반복된 횟수 : " + cnt);
 					
+				}*/
+			
+			
+			   //1~10까지 저장
+				int[] counts = new int[10];
+				
+				//500까지 생성
+				for (int i = 0; i < 500; i++){
+					int random = (int)(Math.random() * 10) + 1;
+					counts[random - 1]++;
+				}
+				//1부터 10까지 몇 번 발생 됐는지 출력
+				for(int i = 0; i < counts.length; i++){
+					System.out.println(i + 1 + " : " + counts[i]);
+				}
+	
+				//최소, 최대, 반복횟수 입력 받기
+				Scanner s = new Scanner(System.in);
+				
+				System.out.print("최소값 : ");
+				int min1 = Integer.parseInt(s.nextLine());
+				System.out.print("최대값 : ");
+				int max1 = Integer.parseInt(s.nextLine());
+				System.out.print("반복횟수 : ");
+				int ran1 = Integer.parseInt(s.nextLine());
+				
+				counts = new int[max1 - min1 + 1];
+				
+				int repeat = 0;
+				
+				//반복횟수 출력
+				for(int i = 0; i < repeat; i++){
+					int random = (int)(Math.random() * max1 - min1) + min1;
+					counts[random - min1]++;
+					
+				}
+				//결과값 출력
+				for(int i = 0; i < counts.length; i++){
+					System.out.print(i + min1 + " : " + counts[i]);
+				
+				
 				}
 				
+				
+				
+	}
 	
-	}
-				
-				
-				
-	}
+}
 
