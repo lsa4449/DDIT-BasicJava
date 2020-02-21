@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class RegBook {
 
 	Scanner s = new Scanner(System.in);
-	BookVO[] b = new BookVO[200];
+	BookVO[] b = new BookVO[100];
 	boolean play = true;
 
 	// 도서 메인 메뉴 선택 번호
@@ -180,6 +180,7 @@ public class RegBook {
 	//도서 목록 보여주기
 	public void indexBook(BookVO b) {
 		System.out.println(b.toString());
+		
 		
 	}
 

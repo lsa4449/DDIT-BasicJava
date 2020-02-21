@@ -3,8 +3,6 @@ package zzz.pro;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class LoginBook {
 
@@ -13,14 +11,8 @@ public class LoginBook {
 	//로그인 ID = 회원가입 ID
 	//id1 = 회원가입, id2 = 로그인
 	//PWD1 = 회원가입, PWD2 = 로그인
-	String id1 = "[a-z0-9]{5,10}", id2 = "";
-	String pwd1 = "[a-z0-9]{5,15]", pwd2 = "";
-	
-	Pattern i = Pattern.compile(id2);
-	Matcher m1 = i.matcher(id1);
-	
-	Pattern p = Pattern.compile(pwd2);
-	Matcher m2 = i.matcher(pwd1);
+	String id1 = "", id2 = "";
+	String pwd1 = "", pwd2 = "";
 	
 	int num = 0;
 	Date today = new Date();
@@ -43,13 +35,14 @@ public class LoginBook {
 					continue; 
 				}
 				
-				System.out.print("ID(영어+숫자, 5-10글자) : ");
+				System.out.print("ID(소문자+숫자 5~10 자리) : ");
 				id2 = s.next();
-				System.out.print("PWD(영어+숫자, 5-15글자) : ");
+				System.out.print("PWD(소문자+숫자 10~15 자리) : ");
 				pwd2 = s.next();
 				
-				
-				if (id1.equals(id2) && pwd1.equals(pwd2)) {
+				boolean sameId2 = id2.matches("^[a-z0-9]{5,10}");
+				boolean samePwd2 = pwd2.matches("^[a-z0-9]{10,15}");
+				if (id1.equals(id2) && pwd1.equals(pwd2) && sameId2 == true && samePwd2 ==true) {
 					
 					System.out.println("　 　   Λ___Λ\r\n" + 
 							"　　 ( ´∀` )\r\n" + 
@@ -70,12 +63,22 @@ public class LoginBook {
 				
 			//회원가입
 			} else if (num == 2) {
-				System.out.print("ID(영어+숫자, 5-10글자) : ");
+				System.out.print("ID(소문자+숫자 5~10 자리) : ");
 				id1 = s.next();
-				System.out.print("PWD(영어+숫자, 5-15글자) : ");
+				System.out.print("PWD(소문자+숫자 10~15 자리) : ");
 				pwd1 = s.next();
+				
+				boolean sameId1 = id1.matches("^[a-z0-9]{5,10}");
+				boolean samePwd1 = pwd1.matches("^[a-z0-9]{10,15}");
+				if(sameId1 == true && samePwd1 == true){
 				System.out.println("회원가입 완료 하였습니다.");
-			
+				
+				}else {
+					System.out.println("");
+					System.out.println("아이디는 영어와 숫자 섞어서 5-10글자로 해주세요!");
+					System.out.println("비밀번호는 영어와 숫자 섞어서 10-15글자로 해주세요!");
+						
+				}
 				
 				//비밀번호 찾기
 				} else if (num == 3) {

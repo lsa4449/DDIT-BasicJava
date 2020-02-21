@@ -62,6 +62,12 @@ public class BookVO {
 
 	}
 	
+//	public void list(){
+//		System.out.println("=============================================");
+//		System.out.println("|" + num  +"|" +  title +" | " + author + " |" +  list +  "|");
+//		System.out.println("=============================================");
+//	}
+	
 }
 
 // 음..어떻게 꾸밀 수 있을까요?
