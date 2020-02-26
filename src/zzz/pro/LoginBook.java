@@ -20,7 +20,7 @@ public class LoginBook {
 	
 	boolean play = true;
 	
-	LoginBook(){
+	LoginBook() throws InterruptedException{
 		while (play) {
 			System.out.println("=============================================");
 			System.out.println("| 1. 로그인 | 2. 회원가입  | 3. 비밀번호 찾기  | 4. 종료   |");
@@ -44,6 +44,7 @@ public class LoginBook {
 				boolean samePwd2 = pwd2.matches("^[a-z0-9]{10,15}");
 				if (id1.equals(id2) && pwd1.equals(pwd2) && sameId2 == true && samePwd2 ==true) {
 					
+					Thread.sleep(1000);
 					System.out.println("　 　   Λ___Λ\r\n" + 
 							"　　 ( ´∀` )\r\n" + 
 							"　|￣￣￣￣￣￣|\r\n" + 
@@ -51,8 +52,9 @@ public class LoginBook {
 							"／|＿＿＿＿＿＿|＼\r\n" + 
 							"");
 					
-					
+					Thread.sleep(1000);
 					System.out.println("안녕하세요!\n관리자 <" + id1 + ">님이 " + sdf1.format(today) +"에 로그인 했습니다!");
+					Thread.sleep(1000);
 					new RegBook();
 				
 				} else {
